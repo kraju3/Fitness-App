@@ -1,0 +1,65 @@
+{
+  "name": "final-project-ideas-r-us",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cross-env-shell node ./bin/www",
+    "dev": "./node_modules/nodemon/bin/nodemon.js src/app.js --exec 'node ./bin/www'",
+    "test": "cross-env NODE_ENV=test mocha",
+    "testuser": "cross-env NODE_ENV=test mocha test/fitness.js -g 'should not allow duplicate usernames'",
+    "test-fit": "cross-env NODE_ENV=test mocha test/fitness.js",
+    "test-for-coverage": "npm test -- -R min || exit 0",
+    "style": "npm run test -- test/style.js",
+    "coverage": "cross-env NODE_ENV=test nyc --check-coverage=true --reporter=lcov --reporter=text npm run test-for-coverage"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "axios-cookiejar-support": "^0.5.1",
+    "bcrypt": "4.0.0",
+    "body-parser": "1.19.0",
+    "connect-mongo": "3.2.0",
+    "connect-mongodb-session": "^2.3.1",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.0",
+    "express-validator": "6.4.0",
+    "fitbit-node": "^2.2.0",
+    "hbs": "^4.1.0",
+    "http-errors": "~1.6.3",
+    "mongodb": "^3.5.4",
+    "mongoose": "^5.9.2",
+    "morgan": "~1.9.1",
+    "request": "^2.88.2",
+    "simple-oauth2": "^3.4.0",
+    "tough-cookie": "^3.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cross-env": "^7.0.0",
+    "mocha": "^7.0.1",
+    "nodemon": "^2.0.2",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "glob": "^7.1.6",
+    "nyc": "^15.0.0",
+    "prettier": "^1.19.1"
+  },
+  "nyc": {
+    "branches": 80,
+    "lines": 80,
+    "functions": 85,
+    "statements": 80
+  },
+  "prettier": {
+    "singleQuote": true, 
+    "trailingComma": "all",
+    "arrowParens": "always"
+  }
+}

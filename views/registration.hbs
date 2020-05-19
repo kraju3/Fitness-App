@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">MeFit</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+      </div>
+   </div>
+</nav>
+<div class="container">
+      <div class="col-md-6 mx-auto text-center">
+         <div class="header-title">
+            <h2 class="wv-heading--subtitle">
+               Please fill in the following information to register/login
+            </h2>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-4 mx-auto">
+            <h2 class="wv-heading--title">
+               Register
+            </h2>
+            <div class="myform form ">
+               <form action="register" method="POST" name="register">
+                    <div class="form-group">
+                     <input type="text" name="username"  class="form-control my-input" id="id" placeholder=" User Name">
+                     <p>{{userNameError}}</p>
+                  </div>
+                  <div class="form-group">
+                     <input type="text" name="firstname"  class="form-control my-input" id="name" placeholder=" First Name">
+                     <p>{{firstNameError}}</p>
+                  </div>
+                   <div class="form-group">
+                     <input type="text" name="lastname"  class="form-control my-input" id="name" placeholder=" Last Name">
+                     <p>{{lastNameError}}</p>
+                  </div>
+                  <div class="form-group">
+                     <input type="email" name="email"  class="form-control my-input" id="email" placeholder="Email">
+                     <p>{{emailError}}</p>
+                  </div>
+                  <div class="form-group">
+                     <input type="text" name="password" id="password"  class="form-control my-input" placeholder="Password">
+                     <p>{{passwordError}}</p>
+                  </div>
+                  <div class="text-center ">
+                     <button type="submit" class=" btn btn-block send-button tx-tfm">Register</button>
+                  </div>
+                  
+                  <p class="small mt-3">By signing up, you are indicating that you have read and agree to the <a href="#" class="ps-hero__content__link">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+                  </p>
+               </form>
+            </div>
+         </div>
+         <div class="col-md-4 mx-auto">
+            <h2 class="wv-heading--title">
+               Login
+            </h2>
+            <div class="myform form ">
+               <form action="login" method="POST" name="login">
+                  <div class="form-group">
+                     <input type="text" name="email" class="form-control my-input" id="email" placeholder="E-mail ">
+                     <p>{{emailError2}}</p>
+                  </div>
+                  <div class="form-group">
+                     <input type="text" name="password" class="form-control my-input" id="password" placeholder="Password">
+                     <p>{{passwordError2}}</p>
+                  </div>
+                  <div class="text-center ">
+                     <button type="submit" class=" btn btn-block send-button tx-tfm">Login</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>

@@ -1,0 +1,244 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">MeFit</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+         <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="/diet">Diet Plan<span class="sr-only">(current)</span></a>
+            <div class="container">
+            <div class="row justify-content-end">
+               <form class="col-auto" action="logout" method="POST">
+                     <button id="logout" class="btn btn-outline-light">logout</button>
+               </form>
+            </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+  <div id="my_container" class="fatsecret_container"></div>
+    <form action="mealplan" method="POST" name="mealplan">
+            <div class="form-group">
+                <label for="diet">Choose a diet:</label>
+                <select id="diet" name="diet">
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="whole30">Normal</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="calories">Choose a Calorie Count:</label>
+                <input type="text" name="calories" id="calories"  class="form-control my-input" placeholder="Calories">
+             </div>
+            <div class="text-center ">
+                <button type="submit" class=" btn btn-block send-button tx-tfm">Submit</button>
+            </div>
+    </form>
+    <div class="jumbotron jumbotron-fluid">
+        <h1>Current Meal</h1>
+        <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Meal Type</th>
+            <th scope="col">Name</th>
+            <th scope="col">Recipe</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Monday</th>
+            <td>Breakfast</td>
+            <td>{{mon_breakfast_name}}</td>
+            <td>{{mon_breakfast_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Monday</th>
+            <td>Lunch</td>
+            <td>{{mon_lunch_name}}</td>
+            <td>{{mon_lunch_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Monday</th>
+            <td>Dinner</td>
+            <td>{{mon_dinner_name}}</td>
+            <td>{{mon_dinner_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Tuesday</th>
+            <td>Breakfast</td>
+            <td>{{tue_breakfast_name}}</td>
+            <td>{{tue_breakfast_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Tuesday</th>
+            <td>Lunch</td>
+            <td>{{tue_lunch_name}}</td>
+            <td>{{tue_lunch_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Tuesday</th>
+            <td>Dinner</td>
+            <td>{{tue_dinner_name}}</td>
+            <td>{{tue_dinner_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Wednesday</th>
+            <td>Breakfast</td>
+            <td>{{wed_breakfast_name}}</td>
+            <td>{{wed_breakfast_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Wednesday</th>
+            <td>Lunch</td>
+            <td>{{wed_lunch_name}}</td>
+            <td>{{wed_lunch_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Wednesday</th>
+            <td>Dinner</td>
+            <td>{{wed_dinner_name}}</td>
+            <td>{{wed_dinner_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Thursday</th>
+            <td>Breakfast</td>
+            <td>{{thurs_breakfast_name}}</td>
+            <td>{{thurs_breakfast_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Thursday</th>
+            <td>Lunch</td>
+            <td>{{thurs_lunch_name}}</td>
+            <td>{{thurs_lunch_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Thursday</th>
+            <td>Dinner</td>
+            <td>{{thurs_dinner_name}}</td>
+            <td>{{thurs_dinner_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Friday</th>
+            <td>Breakfast</td>
+            <td>{{fri_breakfast_name}}</td>
+            <td>{{fri_breakfast_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Friday</th>
+            <td>Lunch</td>
+            <td>{{fri_lunch_name}}</td>
+            <td>{{fri_lunch_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Friday</th>
+            <td>Dinner</td>
+            <td>{{fri_dinner_name}}</td>
+            <td>{{fri_dinner_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Saturday</th>
+            <td>Breakfast</td>
+            <td>{{sat_breakfast_name}}</td>
+            <td>{{sat_breakfast_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Saturday</th>
+            <td>Lunch</td>
+            <td>{{sat_lunch_name}}</td>
+            <td>{{sat_lunch_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Saturday</th>
+            <td>Dinner</td>
+            <td>{{sat_dinner_name}}</td>
+            <td>{{sat_dinner_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Sunday</th>
+            <td>Breakfast</td>
+            <td>{{sun_breakfast_name}}</td>
+            <td>{{sun_breakfast_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Sunday</th>
+            <td>Lunch</td>
+            <td>{{sun_lunch_name}}</td>
+            <td>{{sun_lunch_url}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Sunday</th>
+            <td>Dinner</td>
+            <td>{{sun_dinner_name}}</td>
+            <td>{{sun_dinner_url}}</td>
+        </tr>
+        </tbody>
+        </table>
+        <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Calories</th>
+            <th scope="col">Protein</th>
+            <th scope="col">Fat</th>
+            <th scope="col">Carbohydrates</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Monday</th>
+            <td>{{mon_calories}}</td>
+            <td>{{mon_protein}}</td>
+            <td>{{mon_fat}}</td>
+            <td>{{mon_carbs}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Tuesday</th>
+            <td>{{tue_calories}}</td>
+            <td>{{tue_protein}}</td>
+            <td>{{tue_fat}}</td>
+            <td>{{tue_carbs}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Wednesday</th>
+            <td>{{wed_calories}}</td>
+            <td>{{wed_protein}}</td>
+            <td>{{wed_fat}}</td>
+            <td>{{wed_carbs}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Thursday</th>
+            <td>{{thurs_calories}}</td>
+            <td>{{thurs_protein}}</td>
+            <td>{{thurs_fat}}</td>
+            <td>{{thurs_carbs}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Friday</th>
+            <td>{{fri_calories}}</td>
+            <td>{{fri_protein}}</td>
+            <td>{{fri_fat}}</td>
+            <td>{{fri_carbs}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Saturday</th>
+            <td>{{sat_calories}}</td>
+            <td>{{sat_protein}}</td>
+            <td>{{sat_fat}}</td>
+            <td>{{sat_carbs}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Sunday</th>
+            <td>{{sun_calories}}</td>
+            <td>{{sun_protein}}</td>
+            <td>{{sun_fat}}</td>
+            <td>{{sun_carbs}}</td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+     
+</div>

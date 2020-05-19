@@ -1,0 +1,19 @@
+name: Docker CI
+
+on:
+  release:
+    tags:
+      - v*
+    types: [ published ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build and publish to github packages
+      run: |
+        docker build -t docker.pkg.github.com/${{ github.repository }}/mefit:$(echo ${{ github.ref }} | sed 's/refs\/tags\///g') .
+        echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com --username ${{ github.actor }} --password-stdin
+        docker push docker.pkg.github.com/${{ github.repository }}/mefit:$(echo ${{ github.ref }} | sed 's/refs\/tags\///g')
+        echo ${{ github.ref }}

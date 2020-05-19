@@ -1,0 +1,43 @@
+name: code quality
+
+on: [pull_request]
+
+jobs:
+  eslint_clean:
+    name: no linter problems
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - run: npm ci
+    - run: npm run style
+      env:
+        CI: true     
+
+  coverage:
+    name: sufficient code coverage
+    runs-on: ubuntu-latest
+
+    services:
+      mongodb:
+        image: mongo
+        ports:
+        # will assign a random free host port
+        - 27017/tcp
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - run: npm ci
+    - run: npm run coverage --silent
+      env:
+        CI: true
+        MONGODB_HOST: ${{secrets.MONGODB_HOST}}
+        MONGODB_PORT: ${{ job.services.mongodb.ports[27017] }} # get randomly assigned published port
+        API_KEY: ${{secrets.API_KEY}}

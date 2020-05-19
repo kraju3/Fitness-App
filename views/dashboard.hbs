@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">MeFit</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+         <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="/diet">Diet Plan<span class="sr-only">(current)</span></a>
+            <div class="container">
+            <div class="row justify-content-end">
+               <form class="col-auto" action="logout" method="POST">
+                     <button id="logout" class="btn btn-outline-light">logout</button>
+               </form>
+            </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    {{!-- <h1 class="display-4">Connect fitbit</h1> --}}
+    <p class="lead">   <a class="nav-item nav-link active" href="/authorize">Connect Fitbit <span class="sr-only">(current)</span></a></p>
+  </div>
+  {{#if name}}
+      <h1>Heart Activity</h1>
+      <div class="row align-items-start">
+         <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">Out of Range</div>
+               <div class="card-body">
+                  <h5 class="card-title">Min: {{out_range_min}}</h5>
+                  <h5 class="card-title">Max: {{out_range_max}}</h5>
+               </div>
+         </div>
+         <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">Fat Burn</div>
+               <div class="card-body">
+                  <h5 class="card-title">Min: {{fat_min}}</h5>
+                  <h5 class="card-title">Max: {{fat_max}}</h5>
+               </div>
+         </div>
+         <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">Cardio</div>
+               <div class="card-body">
+                  <h5 class="card-title">Min: {{cardio_min}}</h5>
+                  <h5 class="card-title">Max: {{cardio_max}}</h5>
+               </div>
+         </div>
+         <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">Peak</div>
+               <div class="card-body">
+                  <h5 class="card-title">Min: {{peak_min}}</h5>
+                  <h5 class="card-title">Max: {{peak_max}}</h5>
+               </div>
+         </div>
+      </div>
+  {{/if}}
+</div>
